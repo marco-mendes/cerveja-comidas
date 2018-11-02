@@ -1,17 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Combinador de Cerveja com Comida</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list>
+    <ion-list>
+      <ion-label class="rotulo">Escolha seu tipo de cerveja</ion-label>
+      <ion-item>
+        <ion-label floating>Cerveja</ion-label>
+        <ion-select [(ngModel)]="cerveja" center>
+            <ion-option *ngFor="let chave of cervejasUnicas" [value]="chave">{{chave}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-card text-center>
+        <ion-card-header>
+        Combinador de cerveja com comida
+        </ion-card-header>
+        <ion-card-content class="score" *ngFor="let valor of combinacao">
+          {{valor}} 
+        </ion-card-content> 
+      </ion-card>
+  </ion-list>
 </ion-content>
